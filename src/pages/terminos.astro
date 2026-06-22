@@ -1,0 +1,45 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<BaseHead title={`Términos - ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body class="bg-[#0b1020] text-white antialiased">
+		<Header />
+		<main class="section-padding">
+			<div class="container-padding max-w-3xl mx-auto">
+				<h1 class="text-3xl md:text-4xl font-bold mb-8 text-white">Términos de Servicio</h1>
+				<div class="prose prose-invert text-white/80 leading-relaxed">
+					<p>Al utilizar los servicios de SpyBlue Studio, aceptas los siguientes términos y condiciones. Te recomendamos leerlos detenidamente.</p>
+
+					<h2>Servicios</h2>
+					<p>SpyBlue Studio ofrece servicios de producción y transmisión webcam en un entorno profesional y seguro. Todos los servicios se proporcionan de acuerdo con las leyes colombianas.</p>
+
+					<h2>Responsabilidades del modelo</h2>
+					<ul>
+						<li>Ser mayor de edad (18+ años)</li>
+						<li>Proporcionar documentación legal vigente</li>
+						<li>Cumplir con las políticas del estudio y las plataformas</li>
+						<li>Mantener confidencialidad sobre las operaciones del estudio</li>
+					</ul>
+
+					<h2>Compensación</h2>
+					<p>Los pagos se realizan de forma quincenal según el esquema de compensación acordado al momento del registro. Los montos varían según rendimiento y plataformas.</p>
+
+					<h2>Confidencialidad</h2>
+					<p>Ambas partes acuerdan mantener la confidencialidad de toda la información compartida durante la relación contractual.</p>
+
+					<h2>Modificaciones</h2>
+					<p>SpyBlue Studio se reserva el derecho de modificar estos términos en cualquier momento. Los cambios serán comunicados oportunamente.</p>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>

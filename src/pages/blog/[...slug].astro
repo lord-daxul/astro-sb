@@ -1,21 +1,77 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
-import { render } from 'astro:content';
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { getPostBySlug } from '../../lib/wordpress';
+import { SITE_TITLE } from '../../consts';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+  const res = await fetch('https://backend.spyblue.co/wp-json/wp/v2/posts');
+  const posts = await res.json();
+  return posts.map((post: any) => ({
+    params: { slug: post.slug },
+  }));
 }
-type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
-const { Content } = await render(post);
+const { slug } = Astro.params;
+const post = await getPostBySlug(slug!);
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const img = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
+const imgAlt = post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || "";
+const formatDate = (d: string) => new Date(d).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<BaseHead title={`${post.title.rendered} - SpyBlue`} description={post.excerpt.rendered.replace(/<[^>]*>/g, '').slice(0, 160)} />
+	</head>
+	<body class="bg-[#0b1020] text-white antialiased">
+		<Header />
+		<main class="section-padding">
+			<article class="container-padding max-w-3xl mx-auto">
+				<div class="mb-6">
+					<a href="/blog" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors mb-6">
+						<Icon name="arrow-right" size={16} class="mr-1 rotate-180" />
+						Volver al Blog
+					</a>
+				</div>
+
+				{img && (
+					<div class="aspect-video rounded-xl overflow-hidden mb-8">
+						<img src={img} alt={imgAlt} class="w-full h-full object-cover" />
+					</div>
+				)}
+
+				<div class="flex items-center text-sm text-white/60 mb-4">
+					<Icon name="calendar" size={16} class="mr-1 text-cyan-400" />
+					{formatDate(post.date)}
+				</div>
+
+				<h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8" set:html={post.title.rendered} />
+
+				<div class="prose prose-invert max-w-none text-white/80 leading-relaxed" set:html={post.content.rendered} />
+			</article>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.prose h1, .prose h2, .prose h3, .prose h4 { color: white; font-family: ui-serif, Georgia, serif; }
+	.prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+	.prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+	.prose p { margin-bottom: 1rem; line-height: 1.75; }
+	.prose a { color: #22d3ee; text-decoration: underline; }
+	.prose img { border-radius: 0.75rem; margin: 1.5rem 0; max-width: 100%; }
+	.prose ul, .prose ol { margin: 1rem 0; padding-left: 1.5rem; }
+	.prose li { margin-bottom: 0.5rem; }
+	.prose blockquote { border-left: 3px solid #22d3ee; padding-left: 1rem; margin: 1.5rem 0; color: rgba(255,255,255,0.7); font-style: italic; }
+	.prose pre { background: rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; }
+	.prose code { font-size: 0.875rem; }
+</style>

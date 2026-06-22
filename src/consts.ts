@@ -1,5 +1,2 @@
-// Place any global data in this file.
-// You can import this data from anywhere in your site by using the `import` keyword.
-
-export const SITE_TITLE = "Astro Blog";
-export const SITE_DESCRIPTION = "Welcome to my website!";
+export const SITE_TITLE = "SpyBlue - Estudio WebCam Cúcuta | Mejor Estudio WebCam Latam";
+export const SITE_DESCRIPTION = "Trabaja en el mejor estudio Webcam en Cúcuta. Aumenta tus ingresos trabajando en la industria del modelaje webcam con SpyBlue.";

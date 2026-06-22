@@ -1,0 +1,35 @@
+---
+const platforms = [
+  { name: "Cam4", color: "#E8423F" },
+  { name: "Stripchat", color: "#FF69B4", large: true },
+  { name: "Chaturbate", color: "#FFA500" },
+  { name: "Camsoda", color: "#00CED1" },
+  { name: "ManyVids", color: "#9B59B6" },
+];
+---
+
+<section id="platforms" class="section-padding bg-[#0b1020] overflow-hidden">
+  <div class="container-padding max-w-7xl mx-auto">
+    <div class="text-center mb-12">
+      <h2 class="section-title text-white">
+        Transmite en
+        <span class="accent-text"> Varias Plataformas</span> a la vez
+      </h2>
+      <p class="text-lg text-white/70 max-w-2xl mx-auto">
+        Maximiza tus ingresos transmitiendo simultáneamente en las mejores plataformas webcam del mundo
+      </p>
+    </div>
+
+    <div class="card-dark p-8 transition-all duration-300">
+      <div class="flex flex-wrap items-center justify-center gap-6 lg:gap-8">
+        {platforms.map((platform) => (
+          <div class="flex items-center justify-center px-6 py-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300">
+            <span class="font-bold text-lg tracking-wide" style={{ color: platform.color }}>
+              {platform.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
