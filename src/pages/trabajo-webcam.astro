@@ -1,0 +1,130 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { SITE_TITLE } from '../consts';
+
+const WHATSAPP_NUMBER = "573166004712";
+const WHATSAPP_MESSAGE = "Hola, estoy interesada en empezar mi carrera como modelo webcam con SpyBlue.";
+
+const steps = [
+  { icon: "phone", title: "Contáctanos", desc: "Agenda tu entrevista a través de WhatsApp" },
+  { icon: "eye", title: "Entrevista", desc: "Conocemos tus objetivos y te explicamos el proceso" },
+  { icon: "award", title: "Capacitación", desc: "Te entrenamos para que puedas brillar" },
+  { icon: "trending-up", title: "Empieza a generar", desc: "Comienza a transmitir y maximiza tus ingresos" },
+];
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<BaseHead title={`Trabajo WebCam - ${SITE_TITLE}`} description="Descubre cómo empezar tu carrera como modelo webcam en SpyBlue Studio." />
+	</head>
+	<body class="bg-[#0b1020] text-white antialiased">
+		<Header />
+		<main>
+			<section class="section-padding bg-[#0b1020]">
+				<div class="container-padding max-w-7xl mx-auto">
+					<div class="text-center mb-16">
+						<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Trabajo WebCam</h1>
+						<p class="text-lg text-white/70 max-w-2xl mx-auto">Todo lo que necesitas saber para empezar tu carrera como modelo webcam</p>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+						<div>
+							<h2 class="text-2xl md:text-3xl font-bold text-white mb-6">¿Qué es ser modelo webcam?</h2>
+							<p class="text-white/70 leading-relaxed mb-4">
+								Ser modelo webcam es una profesión digital donde te conectas en vivo con una audiencia 
+								global a través de plataformas especializadas. Es una oportunidad de generar ingresos 
+								desde la comodidad y seguridad de nuestro estudio.
+							</p>
+							<p class="text-white/70 leading-relaxed mb-4">
+								En SpyBlue te brindamos todas las herramientas, el espacio y el acompañamiento 
+								necesario para que puedas desarrollar tu carrera con total profesionalismo.
+							</p>
+							<p class="text-white/70 leading-relaxed">
+								No necesitas experiencia previa, nosotros te capacitamos. Solo necesitas 
+								ser mayor de edad, tener tu documentación en regla y muchas ganas de superarte.
+							</p>
+						</div>
+						<div class="grid grid-cols-2 gap-4">
+							{steps.map((step) => (
+								<div class="card-dark p-6">
+									<div class="w-12 h-12 rounded-xl bg-white/5 border border-[#2979FF]/30 flex items-center justify-center mb-4">
+										<Icon name={step.icon} size={24} class="text-cyan-400" />
+									</div>
+									<h3 class="font-bold text-white mb-1">{step.title}</h3>
+									<p class="text-sm text-white/70">{step.desc}</p>
+								</div>
+							))}
+						</div>
+					</div>
+
+					<div class="card-dark p-8 md:p-12 mb-16">
+						<h2 class="text-2xl md:text-3xl font-bold text-white mb-8 text-center">Requisitos</h2>
+						<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+							<div class="flex items-start gap-3">
+								<Icon name="check-circle" size={20} class="text-cyan-400 mt-0.5 flex-shrink-0" />
+								<div>
+									<h4 class="font-semibold text-white">Ser mayor de edad</h4>
+									<p class="text-sm text-white/60">Mínimo 18 años cumplidos</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<Icon name="check-circle" size={20} class="text-cyan-400 mt-0.5 flex-shrink-0" />
+								<div>
+									<h4 class="font-semibold text-white">Cédula vigente</h4>
+									<p class="text-sm text-white/60">Documento de identidad original</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<Icon name="check-circle" size={20} class="text-cyan-400 mt-0.5 flex-shrink-0" />
+								<div>
+									<h4 class="font-semibold text-white">Antecedentes judiciales</h4>
+									<p class="text-sm text-white/60">Certificado vigente</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<Icon name="check-circle" size={20} class="text-cyan-400 mt-0.5 flex-shrink-0" />
+								<div>
+									<h4 class="font-semibold text-white">Ganas de trabajar</h4>
+									<p class="text-sm text-white/60">Actitud positiva y profesional</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<Icon name="check-circle" size={20} class="text-cyan-400 mt-0.5 flex-shrink-0" />
+								<div>
+									<h4 class="font-semibold text-white">Disponibilidad de horarios</h4>
+									<p class="text-sm text-white/60">3 turnos disponibles 24/7</p>
+								</div>
+							</div>
+							<div class="flex items-start gap-3">
+								<Icon name="check-circle" size={20} class="text-cyan-400 mt-0.5 flex-shrink-0" />
+								<div>
+									<h4 class="font-semibold text-white">Sin experiencia necesaria</h4>
+									<p class="text-sm text-white/60">Capacitación incluida</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="text-center">
+						<h2 class="text-2xl md:text-3xl font-bold text-white mb-4">¿Lista para empezar?</h2>
+						<p class="text-white/70 mb-8 max-w-xl mx-auto">Agenda tu entrevista ahora y descubre todo tu potencial con nosotros</p>
+						<a
+							href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-lg bg-gradient-to-r from-[#2979FF] to-[#EA3D92] text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#EA3D92]/30 hover:-translate-y-0.5"
+						>
+							<Icon name="phone" size={20} />
+							Agendar Entrevista
+						</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

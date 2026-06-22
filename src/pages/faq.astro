@@ -1,0 +1,111 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { SITE_TITLE } from '../consts';
+
+const faqs = [
+  {
+    question: "¿Qué documentos necesito para ser Modelo WEBCAM?",
+    answer: "Necesitas cédula de ciudadanía vigente, certificado de antecedentes judiciales y ser mayor de edad. Para extranjeros, pasaporte vigente y documentos que acrediten estancia legal en Colombia como PEP o visa.",
+  },
+  {
+    question: "¿Quiero monetizar con SpyBlue. Qué planes ofrecen?",
+    answer: "Ofrecemos planes flexibles según tu disponibilidad y experiencia. Tenemos opciones para principiantes, modelos intermedios y profesionales. Contáctanos para una evaluación personalizada.",
+  },
+  {
+    question: "¿Necesito tener experiencia para ser modelo webcam?",
+    answer: "¡No es necesaria! Contamos con entrenamiento completo para principiantes. Nuestro equipo te guiará paso a paso para que desarrolles tus habilidades y maximices tus ingresos.",
+  },
+  {
+    question: "¿Soy de Venezuela, puedo trabajar con ustedes?",
+    answer: "Sí, trabajamos con modelos de Venezuela y otros países. Solo necesitas documentación que acredite tu estancia legal en Colombia (PEP, visa, etc.) y pasaporte vigente.",
+  },
+  {
+    question: "¿Es legal un estudio webcam?",
+    answer: "Absolutamente. Operamos como empresa legalmente constituida en Colombia con todos los permisos y licencias requeridas. Cumplimos con todas las normativas laborales y de protección de datos.",
+  },
+  {
+    question: "¿Cuánto puedo llegar a ganar como modelo webcam?",
+    answer: "Los ingresos son variables y dependen de tu dedicación, horarios y desempeño. En SpyBlue nuestros modelos llegan a obtener ingresos que nunca imaginaron. Contáctanos para conocer más detalles.",
+  },
+  {
+    question: "¿Cómo son los horarios de trabajo?",
+    answer: "Disponemos de 3 turnos en horarios 24/7. Tú escoges el que más te convenga. Nuestro estudio está abierto las 24 horas para que puedas trabajar en el horario que mejor se adapte a tus necesidades.",
+  },
+  {
+    question: "¿Qué plataformas puedo usar?",
+    answer: "Trabajamos con las principales plataformas del mercado: Cam4, Stripchat, Chaturbate, Camsoda y ManyVids. Puedes transmitir en varias plataformas simultáneamente para maximizar tus ingresos.",
+  },
+  {
+    question: "¿Ofrecen capacitación?",
+    answer: "Sí, ofrecemos capacitación completa para principiantes y entrenamiento continuo para modelos experimentadas. Te enseñamos técnicas de transmisión, interacción con audiencia y estrategias de monetización.",
+  },
+  {
+    question: "¿Cómo es el proceso de pago?",
+    answer: "Los pagos son quincenales y seguros. Utilizamos métodos de pago confiables y transparentes. Te proporcionaremos un desglose detallado de tus ganancias en cada período de pago.",
+  },
+];
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<BaseHead title={`FAQ - ${SITE_TITLE}`} description="Preguntas frecuentes sobre el trabajo como modelo webcam en SpyBlue Studio." />
+	</head>
+	<body class="bg-[#0b1020] text-white antialiased">
+		<Header />
+		<main>
+			<section id="faq-page" class="section-padding bg-[#0b1020]">
+				<div class="container-padding max-w-4xl mx-auto">
+					<div class="text-center mb-12">
+						<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/5 border border-[#2979FF]/30 mb-4">
+							<Icon name="help-circle" size={32} class="text-cyan-400" />
+						</div>
+						<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Preguntas Frecuentes</h1>
+						<p class="text-lg text-white/70">Resolvemos todas tus dudas sobre trabajar como modelo webcam</p>
+					</div>
+
+					<div class="space-y-4" id="faq-page-container">
+						{faqs.map((faq, index) => (
+							<div class="card-dark overflow-hidden">
+								<button class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left hover:bg-white/5 transition-colors" data-index={index}>
+									<span class="font-semibold text-white pr-4">{faq.question}</span>
+									<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 text-cyan-400 flex-shrink-0 transition-transform duration-200">
+										<path d="m6 9 6 6 6-6"/>
+									</svg>
+								</button>
+								<div class="faq-answer" style={{ display: index === 0 ? 'block' : 'none' }}>
+									<div class="px-6 pb-5 border-t border-[#2979FF]/20">
+										<p class="text-white/70 leading-relaxed">{faq.answer}</p>
+									</div>
+								</div>
+							</div>
+						))}
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<script>
+  const buttons = document.querySelectorAll('#faq-page-container .faq-btn');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.index);
+      const answer = btn.nextElementSibling;
+      const chevron = btn.querySelector('.faq-chevron');
+      const isOpen = answer.style.display === 'block';
+      document.querySelectorAll('#faq-page-container .faq-answer').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('#faq-page-container .faq-chevron').forEach(el => el.classList.remove('rotate-180'));
+      if (!isOpen) {
+        answer.style.display = 'block';
+        chevron.classList.add('rotate-180');
+      }
+    });
+  });
+  document.querySelector('#faq-page-container .faq-chevron')?.classList.add('rotate-180');
+</script>

@@ -1,0 +1,90 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="es" class="dark">
+	<head>
+		<BaseHead title={`Nosotros - ${SITE_TITLE}`} description="Conoce SpyBlue Studio, el mejor estudio webcam de Cúcuta y Latinoamérica." />
+	</head>
+	<body class="bg-[#0b1020] text-white antialiased">
+		<Header />
+		<main>
+			<section class="section-padding bg-[#0b1020]">
+				<div class="container-padding max-w-7xl mx-auto">
+					<div class="text-center mb-16">
+						<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Sobre Nosotros</h1>
+						<p class="text-lg text-white/70 max-w-2xl mx-auto">Conoce quiénes somos y por qué somos líderes en la industria webcam</p>
+					</div>
+
+					<div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+						<div>
+							<h2 class="text-3xl font-bold text-white mb-6">SpyBlue Studio</h2>
+							<p class="text-white/70 leading-relaxed mb-4">
+								Somos un estudio webcam ubicado en Cúcuta, Colombia, con presencia y reconocimiento en toda Latinoamérica. 
+								Nacimos con la misión de ofrecer un espacio profesional, seguro y moderno para modelos webcam.
+							</p>
+							<p class="text-white/70 leading-relaxed mb-4">
+								Contamos con tecnología de punta, instalaciones de primer nivel y un equipo humano 
+								altamente capacitado para brindarte el mejor entorno de trabajo.
+							</p>
+							<p class="text-white/70 leading-relaxed">
+								Nuestro compromiso es tu éxito. Te acompañamos en cada paso de tu carrera 
+								como modelo webcam, desde tu formación hasta tu crecimiento profesional.
+							</p>
+						</div>
+						<div class="card-dark p-8">
+							<div class="grid grid-cols-2 gap-6 text-center">
+								<div>
+									<div class="text-3xl font-bold text-cyan-400 mb-1">50+</div>
+									<p class="text-white/60 text-sm">Modelos Activos</p>
+								</div>
+								<div>
+									<div class="text-3xl font-bold text-cyan-400 mb-1">5+</div>
+									<p class="text-white/60 text-sm">Plataformas</p>
+								</div>
+								<div>
+									<div class="text-3xl font-bold text-cyan-400 mb-1">24/7</div>
+									<p class="text-white/60 text-sm">Disponibilidad</p>
+								</div>
+								<div>
+									<div class="text-3xl font-bold text-cyan-400 mb-1">#1</div>
+									<p class="text-white/60 text-sm">En Latam</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="grid md:grid-cols-3 gap-8">
+						<div class="card-dark p-8 text-center">
+							<div class="w-16 h-16 rounded-2xl bg-white/5 border border-[#2979FF]/30 flex items-center justify-center mx-auto mb-4">
+								<Icon name="eye" size={28} class="text-cyan-400" />
+							</div>
+							<h3 class="text-xl font-bold text-white mb-3">Misión</h3>
+							<p class="text-white/70">Proporcionar un entorno profesional y seguro que potencie el talento de nuestras modelos con tecnología de punta.</p>
+						</div>
+						<div class="card-dark p-8 text-center">
+							<div class="w-16 h-16 rounded-2xl bg-white/5 border border-[#2979FF]/30 flex items-center justify-center mx-auto mb-4">
+								<Icon name="award" size={28} class="text-cyan-400" />
+							</div>
+							<h3 class="text-xl font-bold text-white mb-3">Visión</h3>
+							<p class="text-white/70">Ser el estudio webcam líder en Latinoamérica, reconocido por nuestra calidad, innovación y compromiso con el talento.</p>
+						</div>
+						<div class="card-dark p-8 text-center">
+							<div class="w-16 h-16 rounded-2xl bg-white/5 border border-[#2979FF]/30 flex items-center justify-center mx-auto mb-4">
+								<Icon name="heart" size={28} class="text-cyan-400" />
+							</div>
+							<h3 class="text-xl font-bold text-white mb-3">Valores</h3>
+							<p class="text-white/70">Profesionalismo, respeto, innovación, seguridad y compromiso con el bienestar de nuestras modelos.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
