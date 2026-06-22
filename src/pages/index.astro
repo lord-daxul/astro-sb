@@ -2,6 +2,8 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import AboutHome from '../components/AboutHome.astro';
+import IntroSection from '../components/IntroSection.astro';
 import BenefitsSection from '../components/BenefitsSection.astro';
 import PlatformsSection from '../components/PlatformsSection.astro';
 import FAQ from '../components/FAQ.astro';
@@ -27,6 +29,8 @@ const posts = await getPosts();
 		<Header />
 		<main>
 			<Hero />
+			<AboutHome />
+			<IntroSection />
 			<BenefitsSection />
 			<PlatformsSection />
 			<FAQ />
