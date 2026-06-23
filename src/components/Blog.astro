@@ -15,9 +15,11 @@ export interface Props {
       }>;
     };
   }>;
+  limit?: number;
 }
 
-const { posts = [] } = Astro.props;
+const { posts = [], limit } = Astro.props;
+const displayPosts = limit ? posts.slice(0, limit) : posts;
 
 function getFeaturedImage(post: any): string | null {
   return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
@@ -43,7 +45,7 @@ function getFeaturedImageAlt(post: any): string {
     </div>
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {posts.map((post) => {
+      {displayPosts.map((post) => {
         const featuredImage = getFeaturedImage(post);
         const featuredAlt = getFeaturedImageAlt(post);
         const formatDate = (dateString: string) => {
