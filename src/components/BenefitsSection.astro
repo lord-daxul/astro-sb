@@ -47,7 +47,7 @@ const benefits = [
 
     <div class="grid md:grid-cols-2 gap-8">
       {benefits.map((benefit, index) => (
-        <div class="rounded-xl p-8 transition-all duration-300 border border-[var(--color-border)] bg-[var(--color-card-bg)]">
+        <div class="card-dark rounded-xl p-8 transition-all duration-300">
           <div class="grid md:grid-cols-2 gap-6 items-center">
             <div class={index % 2 === 0 ? 'md:order-1' : 'md:order-2'}>
               <div class="flex items-center gap-3 mb-4">
