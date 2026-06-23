@@ -16,7 +16,7 @@
     --color-bg-icon: #FFF0F5;
     --color-bg-icon-hover: #FCE4EC;
     --color-card-bg: #ffffff;
-    --color-card-hover: #D4AF37;
+    --color-card-hover: #D8A79A;
     --color-btn-gradient: linear-gradient(135deg, #FCE4EC, #FADADD, #D4AF37);
     --color-logo-gradient: linear-gradient(to right, #D4AF37, #D8A79A);
     --gold: #D4AF37;
@@ -220,23 +220,7 @@ html.dark section.bg-\[\#0b1020\] .accent-text {
   color: #22d3ee !important;
 }
 
-section.bg-\[\#0b1020\] .card-dark {
-  background-color: var(--rose-light) !important;
-  border-color: var(--beige-border) !important;
-}
 
-html.dark section.bg-\[\#0b1020\] .card-dark {
-  background-color: transparent !important;
-  border-color: rgba(41,121,255,0.3) !important;
-}
-
-section.bg-\[\#0b1020\] .card-dark:hover {
-  border-color: var(--gold) !important;
-}
-
-html.dark section.bg-\[\#0b1020\] .card-dark:hover {
-  border-color: #EA3D92 !important;
-}
 
 section.bg-\[\#0b1020\] [class*="bg-white\/5"] {
   background-color: var(--rose-bg) !important;
