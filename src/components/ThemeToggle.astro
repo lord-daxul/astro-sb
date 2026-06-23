@@ -3,12 +3,11 @@ import Icon from './Icon.astro';
 ---
 
 <button class="theme-toggle p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Toggle theme">
-  <Icon name="sun" name="sun" class="w-5 h-5 text-cyan-400 dark-icon" style="display:none" />
+  <Icon name="sun" class="w-5 h-5 text-cyan-400 dark-icon" style="display:none" />
   <Icon name="moon" class="w-5 h-5 text-slate-600 light-icon" />
 </button>
 
 <script>
-  const toggleBtn = document.currentScript?.previousElementSibling;
   const isDark = localStorage.getItem('theme') === 'dark';
   if (isDark) {
     document.documentElement.classList.add('dark');
@@ -20,9 +19,11 @@ import Icon from './Icon.astro';
   }
   updateIcons(isDark);
 
-  toggleBtn?.addEventListener('click', () => {
-    const nowDark = document.documentElement.classList.toggle('dark');
-    localStorage.setItem('theme', nowDark ? 'dark' : 'light');
-    updateIcons(nowDark);
+  document.querySelectorAll('.theme-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const nowDark = document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', nowDark ? 'dark' : 'light');
+      updateIcons(nowDark);
+    });
   });
 </script>
