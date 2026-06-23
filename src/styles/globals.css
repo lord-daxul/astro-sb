@@ -25,6 +25,8 @@
     --gold-light: #E8C87A;
     --rose: #D8A79A;
     --rose-hover: #C19A8E;
+    --rose-light: #FFF0F5;
+    --rose-bg: #FCE4EC;
     --champagne: #FDF3E7;
     --marfil: #FDF8F3;
     --beige: #FDFBFA;
@@ -34,7 +36,7 @@
   }
 
   body.light {
-    --color-bg: #FDFBFA;
+    --color-bg: #FFF0F5;
     --color-text: #5D4037;
     --color-text-muted: #8B6B5B;
     --color-text-dim: #8B6B5B;
@@ -43,11 +45,11 @@
     --color-accent-hover: #C5A059;
     --color-border: #E8E4DE;
     --color-border-accent: rgba(212,175,55,0.3);
-    --color-bg-icon: #FDF3E7;
-    --color-bg-icon-hover: #FDF3E7;
-    --color-card-bg: #FFFFFF;
+    --color-bg-icon: #FFF0F5;
+    --color-bg-icon-hover: #FCE4EC;
+    --color-card-bg: #FFF0F5;
     --color-card-hover: #D4AF37;
-    --color-btn-gradient: linear-gradient(135deg, #FDF3E7, #E8C87A, #D4AF37);
+    --color-btn-gradient: linear-gradient(135deg, #FCE4EC, #FADADD, #D4AF37);
     --color-logo-gradient: linear-gradient(to right, #D4AF37, #D8A79A);
   }
 
@@ -145,22 +147,22 @@ body.light .hero-glow {
 }
 
 body.light .grid-bg {
-  background-image: linear-gradient(rgba(168,134,74,0.04) 1px, transparent 1px),
-                    linear-gradient(90deg, rgba(168,134,74,0.04) 1px, transparent 1px) !important;
+  background-image: linear-gradient(rgba(212,175,55,0.04) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(212,175,55,0.04) 1px, transparent 1px) !important;
   opacity: 0.6 !important;
 }
 
 body.light section.bg-\[#0b1020\] {
-  background-color: #FCE4EC !important;
+  background-color: var(--rose-bg) !important;
 }
 
 body.light #platforms,
 body.light #blog {
-  background-color: #FDFBFA !important;
+  background-color: var(--color-bg) !important;
 }
 
 body.light #footer {
-  background-color: #FDFBFA !important;
+  background-color: var(--color-bg) !important;
   border-top-color: var(--beige-border) !important;
 }
 
@@ -184,7 +186,7 @@ body.light section.bg-\[#0b1020\] .accent-text {
 }
 
 body.light section.bg-\[#0b1020\] .card-dark {
-  background-color: #FFFFFF !important;
+  background-color: var(--rose-light) !important;
   border-color: var(--beige-border) !important;
 }
 
@@ -193,7 +195,7 @@ body.light section.bg-\[#0b1020\] .card-dark:hover {
 }
 
 body.light section.bg-\[#0b1020\] [class*="bg-white\/5"] {
-  background-color: var(--champagne) !important;
+  background-color: var(--rose-bg) !important;
 }
 
 body.light section.bg-\[#0b1020\] [class*="border-\[\#2979FF\]\/30"],
@@ -238,7 +240,7 @@ body.light #footer [class*="from-cyan-400 to-\[\#EA3D92\]"] {
 }
 
 body.light header[class*="bg-\[\#0b1020\]\/95"] {
-  background-color: rgba(255,255,255,0.92) !important;
+  background-color: rgba(255,240,245,0.95) !important;
   border-bottom-color: var(--beige-border) !important;
   backdrop-filter: blur(16px) !important;
 }
@@ -257,25 +259,25 @@ body.light header button[class*="text-cyan-400"] {
 }
 
 body.light header [class*="bg-white\/10"] {
-  background-color: var(--champagne) !important;
+  background-color: var(--rose-bg) !important;
 }
 
 body.light #hero a[class*="from-\[\#2979FF\] to-\[\#EA3D92\]"] {
-  background: linear-gradient(135deg, #FDF3E7, #E8C87A, #D4AF37) !important;
+  background: var(--color-btn-gradient) !important;
   color: var(--brown-dark) !important;
-  box-shadow: 0 4px 15px rgba(212,175,55,0.2), inset 0 1px 2px rgba(255,255,255,0.6) !important;
+  box-shadow: 0 4px 15px rgba(212,175,55,0.2), inset 0 1px 2px rgba(255,240,245,0.6) !important;
   border: 1px solid rgba(212,175,55,0.2) !important;
 }
 
 body.light #hero a[class*="border border-\[\#2979FF\]"] {
-  background: rgba(255,255,255,0.3) !important;
+  background: rgba(255,240,245,0.5) !important;
   backdrop-filter: blur(8px) !important;
-  border-color: rgba(168,134,74,0.3) !important;
+  border-color: rgba(212,175,55,0.3) !important;
   color: var(--brown-dark) !important;
 }
 
 body.light div[class*="bg-\[\#0b1020\]\/95"] {
-  background-color: rgba(255,255,255,0.95) !important;
+  background-color: rgba(255,240,245,0.95) !important;
 }
 
 body.light div[class*="border-white\/10"] {
