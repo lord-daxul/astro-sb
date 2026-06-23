@@ -31,49 +31,40 @@ const benefits = [
     features: ["Bloqueo de países", "Privacidad total", "Seguridad garantizada"]
   }
 ];
-
-const { background = '#0b1020', onPink = false } = Astro.props;
-
-const titleColor = onPink ? 'var(--gold)' : 'white';
-const textColor = onPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)';
-const iconBg = onPink ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)';
-const iconBorder = onPink ? 'var(--gold)' : 'rgba(41,121,255,0.3)';
-const iconColor = onPink ? 'var(--gold)' : '#22d3ee';
-const bulletColor = onPink ? 'var(--gold)' : '#22d3ee';
 ---
 
-<section id="beneficios" class="section-padding overflow-hidden" style={`background-color: ${background};`}>
+<section id="beneficios" class="section-padding overflow-hidden" style="background-color: var(--benefits-bg, var(--color-bg));">
   <div class="container-padding max-w-7xl mx-auto">
     <div class="text-center mb-16">
-      <h2 class="section-title" style={`color: ${onPink ? 'var(--brown-dark)' : 'white'};`}>
+      <h2 class="section-title text-[var(--color-text)]">
         Beneficios de trabajar con
-        <span class="accent-text" style="color: var(--gold);"> SpyBlue</span>
+        <span class="text-[var(--color-accent)]"> SpyBlue</span>
       </h2>
-      <p class="text-lg" style={`color: ${onPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`} class="max-w-2xl mx-auto">
+      <p class="text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto">
         Descubre por qué somos el mejor estudio webcam de Cúcuta y Latinoamérica
       </p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
       {benefits.map((benefit, index) => (
-        <div class="transition-all duration-300 group" style={`background-color: ${onPink ? 'white' : 'transparent'}; border: 1px solid ${onPink ? '#E8E4DE' : 'rgba(41,121,255,0.3)'}; border-radius: 1rem; padding: 2rem;`}>
+        <div class="rounded-xl p-8 transition-all duration-300 border border-[var(--color-border)] bg-[var(--color-card-bg)]">
           <div class="grid md:grid-cols-2 gap-6 items-center">
             <div class={index % 2 === 0 ? 'md:order-1' : 'md:order-2'}>
               <div class="flex items-center gap-3 mb-4">
-                <div class="w-12 h-12 rounded-xl flex items-center justify-center" style={`background-color: ${onPink ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)'}; border: 1px solid ${onPink ? 'var(--gold)' : 'rgba(41,121,255,0.3)'};`}>
-                  <Icon name={benefit.icon} size={24} style={`color: ${onPink ? 'var(--gold)' : '#22d3ee'};`} />
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-[var(--color-bg-icon)] border border-[var(--color-border-accent)]">
+                  <Icon name={benefit.icon} size={24} class="text-[var(--color-accent)]" />
                 </div>
-                <h3 class="text-xl font-bold" style={`color: ${onPink ? 'var(--gold)' : 'white'};`}>{benefit.title}</h3>
+                <h3 class="text-xl font-bold text-[var(--color-accent)]">{benefit.title}</h3>
               </div>
 
-              <p class="leading-relaxed mb-6" style={`color: ${onPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`}>
+              <p class="leading-relaxed mb-6 text-[var(--color-text-muted)]">
                 {benefit.description}
               </p>
 
               <ul class="space-y-2">
                 {benefit.features.map((feature) => (
-                  <li class="flex items-center text-sm" style={`color: ${onPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`}>
-                    <div class="w-1.5 h-1.5 rounded-full mr-3" style={`background-color: ${onPink ? 'var(--gold)' : '#22d3ee'};`}></div>
+                  <li class="flex items-center text-sm text-[var(--color-text-dim)]">
+                    <div class="w-1.5 h-1.5 rounded-full mr-3 bg-[var(--color-accent)]"></div>
                     {feature}
                   </li>
                 ))}
@@ -87,7 +78,6 @@ const bulletColor = onPink ? 'var(--gold)' : '#22d3ee';
                   alt={benefit.title}
                   class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div class="absolute inset-0 bg-gradient-to-t from-transparent to-transparent" style={`background: ${onPink ? 'linear-gradient(to top, rgba(252,228,236,0.5), transparent)' : 'linear-gradient(to top, rgba(11,16,32,0.5), transparent)'};`}></div>
               </div>
             </div>
           </div>

@@ -17,7 +17,7 @@ const posts = await getPosts();
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,11 +28,11 @@ const posts = await getPosts();
 		<Header />
 		<main>
 			<Hero />
-			<IntroSection background="white" />
-			<BenefitsSection background="var(--rose-bg)" onPink={true} />
-			<PlatformsSection background="white" />
-			<FAQ background="pink" />
-			<Blog posts={posts} limit={6} background="white" />
+			<IntroSection />
+			<BenefitsSection />
+			<PlatformsSection />
+			<FAQ />
+			<Blog posts={posts} limit={6} />
 			<CTA />
 		</main>
 		<Footer />

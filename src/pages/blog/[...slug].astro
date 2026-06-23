@@ -27,11 +27,11 @@ const formatDate = (d: string) => new Date(d).toLocaleDateString("es-CO", { year
 ---
 
 <!doctype html>
-<html lang="es" class="dark">
+<html lang="es">
 	<head>
 		<BaseHead title={`${post.title.rendered} - SpyBlue`} description={post.excerpt.rendered.replace(/<[^>]*>/g, '').slice(0, 160)} />
 	</head>
-	<body class="bg-[#0b1020] text-white antialiased">
+	<body class="antialiased">
 		<Header />
 		<main class="section-padding">
 			<article class="container-padding max-w-3xl mx-auto">

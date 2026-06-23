@@ -23,50 +23,37 @@ const faqs = [
     answer: "Absolutamente. Operamos como empresa legalmente constituida en Colombia con todos los permisos y licencias requeridas. Cumplimos con todas las normativas laborales y de protección de datos.",
   },
 ];
-
-const { background = '#0b1020' } = Astro.props;
-const isPink = background === 'pink' || background === '#FCE4EC' || background === 'var(--rose-bg)';
-const titleColor = isPink ? 'var(--brown-dark)' : 'white';
-const textColor = isPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)';
-const iconBg = isPink ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)';
-const iconColor = isPink ? 'var(--gold)' : '#22d3ee';
-const borderColor = isPink ? 'var(--gold)' : 'rgba(41,121,255,0.2)';
-const chevronColor = isPink ? 'var(--gold)' : '#22d3ee';
-const answerBg = isPink ? 'var(--rose-bg)' : 'rgba(11,16,32,0.5)';
 ---
 
-<section id="faq" class="section-padding" style={`background-color: ${background};`}>
+<section id="faq" class="faq-section section-padding" style="background-color: var(--faq-bg, var(--color-bg));">
   <div class="container-padding max-w-4xl mx-auto">
     <div class="text-center mb-12">
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full flex items-center justify-center mb-4" style={`background-color: ${isPink ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)'}; border: 1px solid ${isPink ? 'var(--gold)' : 'rgba(41,121,255,0.3)'};`}>
-        <Icon name="help-circle" size={24} style={`color: ${isPink ? 'var(--gold)' : '#22d3ee'};`} />
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4 bg-[var(--color-bg-icon)] border border-[var(--color-border-accent)]">
+        <Icon name="help-circle" size={24} class="text-[var(--color-accent)]" />
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold mb-4" style={`color: ${isPink ? 'var(--brown-dark)' : 'white'};`}>
+      <h2 class="text-3xl md:text-4xl font-bold mb-4 text-[var(--color-text)]">
         Preguntas Frecuentes
       </h2>
-      <p class="text-lg" style={`color: ${isPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`}>
+      <p class="text-lg text-[var(--color-text-muted)]">
         Resolvemos tus dudas sobre trabajar como modelo webcam
       </p>
     </div>
 
     <div class="space-y-4" id="faq-container">
       {faqs.map((faq, index) => (
-        <div class="overflow-hidden" style={`background-color: ${isPink ? 'white' : 'transparent'}; border: 1px solid ${isPink ? '#E8E4DE' : 'rgba(41,121,255,0.3)'}; border-radius: 1rem;`}>
+        <div class="faq-item overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-card-bg)]">
           <button
-            class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left transition-colors"
+            class="faq-btn w-full px-6 py-5 flex items-center justify-between text-left transition-colors hover:bg-[var(--color-bg-icon)]"
             data-index={index}
-            style={`background-color: ${isPink ? 'transparent' : 'transparent'};`}
-            onmouseover="this.style.backgroundColor='${isPink ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)'}'"
-            onmouseout="this.style.backgroundColor='transparent'"
           >
-            <span class="font-semibold pr-4" style={`color: ${isPink ? 'var(--brown-dark)' : 'white'};`}>{faq.question}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 flex-shrink-0 transition-transform duration-200" style={`color: ${isPink ? 'var(--gold)' : '#22d3ee'};`}>
+            <span class="font-semibold pr-4 text-[var(--color-text)]">{faq.question}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-chevron w-5 h-5 flex-shrink-0 transition-transform duration-200 text-[var(--color-accent)]">
               <path d="m6 9 6 6 6-6"/>
             </svg>
           </button>
           <div class="faq-answer" style={{ display: index === 0 ? 'block' : 'none' }}>
-            <div class="px-6 pb-5" style={`border-top: 1px solid ${isPink ? 'var(--beige-border)' : 'rgba(41,121,255,0.2)'};`}>
-              <p class="leading-relaxed" style={`color: ${isPink ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`}>{faq.answer}</p>
+            <div class="px-6 pb-5 border-t border-[var(--color-border)]">
+              <p class="leading-relaxed text-[var(--color-text-muted)]">{faq.answer}</p>
             </div>
           </div>
         </div>
