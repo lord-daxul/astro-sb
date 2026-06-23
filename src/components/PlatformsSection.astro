@@ -6,24 +6,34 @@ const platforms = [
   { name: "Camsoda", color: "#00CED1" },
   { name: "ManyVids", color: "#9B59B6" },
 ];
+
+const { background = '#0b1020' } = Astro.props;
+const isWhite = background === 'white' || background === '#ffffff' || background === '#fff';
+const titleColor = isWhite ? 'var(--brown-dark)' : 'white';
+const textColor = isWhite ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)';
+const cardBg = isWhite ? 'white' : 'transparent';
+const cardBorder = isWhite ? '#E8E4DE' : 'rgba(41,121,255,0.3)';
+const platformBg = isWhite ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)';
+const platformHover = isWhite ? 'var(--rose-bg)' : 'rgba(255,255,255,0.1)';
+const accentColor = isWhite ? 'var(--gold)' : '#22d3ee';
 ---
 
-<section id="platforms" class="section-padding bg-[#0b1020] overflow-hidden">
+<section id="platforms" class="section-padding overflow-hidden" style={`background-color: ${background};`}>
   <div class="container-padding max-w-7xl mx-auto">
     <div class="text-center mb-12">
-      <h2 class="section-title text-white">
+      <h2 class="section-title" style={`color: ${titleColor};`}>
         Transmite en
-        <span class="accent-text"> Varias Plataformas</span> a la vez
+        <span class="accent-text" style="color: var(--gold);"> Varias Plataformas</span> a la vez
       </h2>
-      <p class="text-lg text-white/70 max-w-2xl mx-auto">
+      <p class="text-lg" style={`color: ${textColor};`} class="max-w-2xl mx-auto">
         Maximiza tus ingresos transmitiendo simultáneamente en las mejores plataformas webcam del mundo
       </p>
     </div>
 
-    <div class="card-dark p-8 transition-all duration-300">
+    <div class="transition-all duration-300" style={`background-color: ${cardBg}; border: 1px solid ${cardBorder}; border-radius: 1rem; padding: 2rem;`}>
       <div class="flex flex-wrap items-center justify-center gap-6 lg:gap-8">
         {platforms.map((platform) => (
-          <div class="flex items-center justify-center px-6 py-4 bg-white/5 rounded-lg hover:bg-white/10 transition-colors duration-300">
+          <div class="flex items-center justify-center px-6 py-4 rounded-lg transition-colors duration-300" style={`background-color: ${platformBg};`} onmouseover="this.style.backgroundColor='${platformHover}'" onmouseout="this.style.backgroundColor='${platformBg}'">
             <span class="font-bold text-lg tracking-wide" style={{ color: platform.color }}>
               {platform.name}
             </span>

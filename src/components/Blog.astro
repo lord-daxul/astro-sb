@@ -16,10 +16,20 @@ export interface Props {
     };
   }>;
   limit?: number;
+  background?: string;
 }
 
-const { posts = [], limit } = Astro.props;
+const { posts = [], limit, background = '#0b1020' } = Astro.props;
 const displayPosts = limit ? posts.slice(0, limit) : posts;
+const isWhite = background === 'white' || background === '#ffffff' || background === '#fff';
+const titleColor = isWhite ? 'var(--brown-dark)' : 'white';
+const textColor = isWhite ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)';
+const iconBg = isWhite ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)';
+const iconColor = isWhite ? 'var(--gold)' : '#22d3ee';
+const linkColor = isWhite ? 'var(--gold)' : '#22d3ee';
+const linkHover = isWhite ? 'var(--gold)' : '#22d3ee';
+const cardBg = isWhite ? 'white' : 'transparent';
+const cardBorder = isWhite ? '#E8E4DE' : 'rgba(41,121,255,0.3)';
 
 function getFeaturedImage(post: any): string | null {
   return post._embedded?.["wp:featuredmedia"]?.[0]?.source_url || null;
@@ -30,16 +40,16 @@ function getFeaturedImageAlt(post: any): string {
 }
 ---
 
-<section id="blog" class="section-padding bg-[#0b1020]">
+<section id="blog" class="section-padding" style={`background-color: ${background};`}>
   <div class="container-padding max-w-7xl mx-auto">
     <div class="text-center mb-12">
-      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-[#2979FF]/30 mb-4">
-        <Icon name="book-open" size={24} class="text-cyan-400" />
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-full mb-4" style={`background-color: ${isWhite ? 'var(--rose-bg)' : 'rgba(255,255,255,0.05)'}; border: 1px solid ${isWhite ? 'var(--gold)' : 'rgba(41,121,255,0.3)'};`}>
+        <Icon name="book-open" size={24} style={`color: ${isWhite ? 'var(--gold)' : '#22d3ee'};`} />
       </div>
-      <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4" style={`color: ${isWhite ? 'var(--brown-dark)' : 'white'};`}>
         Noticias y Blog
       </h2>
-      <p class="text-lg text-white/70 max-w-2xl mx-auto">
+      <p class="text-lg" style={`color: ${isWhite ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`} class="max-w-2xl mx-auto">
         Consejos, noticias y actualizaciones sobre la industria webcam
       </p>
     </div>
@@ -54,7 +64,7 @@ function getFeaturedImageAlt(post: any): string {
           });
         };
         return (
-          <article class="card-dark overflow-hidden group">
+          <article class="overflow-hidden group transition-all duration-300" style={`background-color: ${isWhite ? 'white' : 'transparent'}; border: 1px solid ${isWhite ? '#E8E4DE' : 'rgba(41,121,255,0.3)'}; border-radius: 1rem;`}>
             {featuredImage && (
               <div class="aspect-video overflow-hidden">
                 <img
@@ -65,25 +75,23 @@ function getFeaturedImageAlt(post: any): string {
               </div>
             )}
             <div class="p-6">
-              <div class="flex items-center text-sm text-white/60 mb-3">
-                <Icon name="calendar" size={16} class="mr-1 text-cyan-400" />
+              <div class="flex items-center text-sm mb-3" style={`color: ${isWhite ? 'var(--brown-muted)' : 'rgba(255,255,255,0.6)'};`}>
+                <Icon name="calendar" size={16} style={`color: ${isWhite ? 'var(--gold)' : '#22d3ee'};`} class="mr-1" />
                 {formatDate(post.date)}
               </div>
-              <h3 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-cyan-400 transition-colors">
-                <a href={`/blog/${post.slug}`}>
+              <h3 class="text-lg font-bold mb-3 line-clamp-2 transition-colors" style={`color: ${isWhite ? 'var(--brown-dark)' : 'white'};`}>
+                <a href={`/blog/${post.slug}`} style={`color: inherit;`}>
                   {post.title.rendered}
                 </a>
               </h3>
-              <div
-                class="text-white/70 text-sm mb-4 line-clamp-3"
-                set:html={post.excerpt.rendered}
-              />
+              <div class="text-sm mb-4 line-clamp-3" style={`color: ${isWhite ? 'var(--brown-muted)' : 'rgba(255,255,255,0.7)'};`} set:html={post.excerpt.rendered} />
               <a
                 href={`/blog/${post.slug}`}
-                class="inline-flex items-center text-cyan-400 font-medium hover:text-cyan-300"
+                class="inline-flex items-center font-medium transition-colors"
+                style={`color: ${isWhite ? 'var(--gold)' : '#22d3ee'};`}
               >
                 Seguir Leyendo
-                <Icon name="arrow-right" size={16} class="ml-1" />
+                <Icon name="arrow-right" size={16} class="ml-1" style={`color: ${isWhite ? 'var(--gold)' : '#22d3ee'};`} />
               </a>
             </div>
           </article>
