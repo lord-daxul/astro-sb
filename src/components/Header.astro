@@ -20,8 +20,9 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
   <div class="container-padding max-w-7xl mx-auto">
     <div class="flex items-center justify-between h-16">
       <a href="/" class="flex items-center space-x-2">
-        <span class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-[#EA3D92] bg-clip-text text-transparent">
-          SpyBlue
+        <span class="logo-wrapper">
+          <img src="/spyblue light.webp" alt="SpyBlue" class="logo-light h-8 w-auto" />
+          <img src="/spyblue dark.webp" alt="SpyBlue" class="logo-dark h-8 w-auto" />
         </span>
       </a>
 
@@ -70,8 +71,16 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
           <Icon name="phone" size={16} />
           Contactar
         </a>
-      </nav>
-    </div>
+        </nav>
+      </div>
+
+<style>
+  .logo-wrapper { display: flex; }
+  .logo-light { display: block; }
+  .logo-dark { display: none; }
+  html.dark .logo-light { display: none; }
+  html.dark .logo-dark { display: block; }
+</style>
   </div>
 </header>
 
