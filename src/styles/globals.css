@@ -12,11 +12,11 @@
     --color-accent-alt: #D8A79A;
     --color-accent-hover: #C5A059;
     --color-border: #E8E4DE;
-    --color-border-accent: rgba(212,175,55,0.3);
+    --color-border-accent: rgba(212,175,55,0.5);
     --color-bg-icon: #FFF0F5;
     --color-bg-icon-hover: #FCE4EC;
     --color-card-bg: #ffffff;
-    --color-card-hover: #D8A79A;
+    --color-card-hover: #C19A8E;
     --color-btn-gradient: linear-gradient(135deg, #FCE4EC, #FADADD, #D4AF37);
     --color-logo-gradient: linear-gradient(to right, #D4AF37, #D8A79A);
     --gold: #D4AF37;
