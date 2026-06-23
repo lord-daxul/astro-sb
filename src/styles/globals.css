@@ -6,8 +6,8 @@
   :root {
     --color-bg: #FFF0F5;
     --color-text: #5D4037;
-    --color-text-muted: #8B6B5B;
-    --color-text-dim: #8B6B5B;
+    --color-text-muted: #4B4B4B;
+    --color-text-dim: #4B4B4B;
     --color-accent: #D4AF37;
     --color-accent-alt: #D8A79A;
     --color-accent-hover: #C5A059;
@@ -31,7 +31,7 @@
     --marfil: #FDF8F3;
     --beige: #FDFBFA;
     --brown-dark: #5D4037;
-    --brown-muted: #8B6B5B;
+    --brown-muted: #4B4B4B;
     --beige-border: #E8E4DE;
   }
 
