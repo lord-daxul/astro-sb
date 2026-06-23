@@ -2,24 +2,49 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import CTA from '../components/CTA.astro';
 import Icon from '../components/Icon.astro';
+import CTA from '../components/CTA.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
 <html lang="es" class="dark">
 	<head>
-		<BaseHead title={`Nosotros - ${SITE_TITLE}`} description="Conoce SpyBlue Studio, el mejor estudio webcam de Cúcuta y Latinoamérica." />
+		<BaseHead title={`Nosotros - ${SITE_TITLE}`} description="Estudio de modelos webcam en Cúcuta, Spyblue." />
 	</head>
 	<body class="bg-[#0b1020] text-white antialiased">
 		<Header />
 		<main>
-			<section class="section-padding bg-[#0b1020]">
-				<div class="container-padding max-w-7xl mx-auto">
-					<div class="text-center mb-16">
-						<h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Sobre Nosotros</h1>
-						<p class="text-lg text-white/70 max-w-2xl mx-auto">Conoce quiénes somos y por qué somos líderes en la industria webcam</p>
+			<section class="section-padding bg-[#0b1020] relative overflow-hidden">
+				<div class="absolute inset-0 grid-bg"></div>
+				<div class="absolute inset-0 hero-glow"></div>
+				<div class="relative container-padding max-w-7xl mx-auto">
+					<div class="text-center max-w-4xl mx-auto mb-16">
+						<h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+							Estudio de modelos webcam en Cúcuta,<br />
+							<span class="bg-gradient-to-r from-cyan-400 to-[#EA3D92] bg-clip-text text-transparent">Spyblue</span>
+						</h1>
+						<p class="text-lg text-white/70 leading-relaxed">
+							Somos un estudio de modelos webcam en Cúcuta, comprometidos en ofrecer un ambiente de trabajo profesional, 
+							cómodo y seguro para nuestras modelos. Nos enfocamos en promover el bienestar y el crecimiento de cada 
+							integrante de nuestro equipo, proporcionándoles instalaciones modernas y privadas, diseñadas para que 
+							trabajar sea una experiencia divertida y gratificante.
+						</p>
+					</div>
+
+					<div class="grid md:grid-cols-3 gap-8 mb-16">
+						<div class="card-dark p-8 text-center">
+							<div class="text-5xl font-bold text-cyan-400 mb-2">4</div>
+							<p class="text-white/60 text-lg">Sedes</p>
+						</div>
+						<div class="card-dark p-8 text-center">
+							<div class="text-5xl font-bold text-cyan-400 mb-2">150<span class="text-3xl">+</span></div>
+							<p class="text-white/60 text-lg">Modelos</p>
+						</div>
+						<div class="card-dark p-8 text-center">
+							<div class="text-5xl font-bold text-cyan-400 mb-2">100<span class="text-3xl">+</span></div>
+							<p class="text-white/60 text-lg">Rooms</p>
+						</div>
 					</div>
 
 					<div class="grid md:grid-cols-3 gap-8">
