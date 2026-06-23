@@ -23,7 +23,7 @@ const posts = allPosts.slice(start, start + POSTS_PER_PAGE);
 	</head>
 	<body class="antialiased">
 		<Header />
-		<main class="section-padding">
+		<section class="section-padding bg-[#0b1020]">
 			<div class="container-padding max-w-7xl mx-auto">
 				<div class="text-center mb-12">
 					<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/5 border border-[#2979FF]/30 mb-4">
@@ -41,7 +41,7 @@ const posts = allPosts.slice(start, start + POSTS_PER_PAGE);
 						const imgAlt = post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || "";
 						const formatDate = (d: string) => new Date(d).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
 						return (
-							<article class="rounded-2xl transition-all duration-300 border border-[#2979FF]/30 hover:border-[#EA3D92] overflow-hidden group">
+							<article class="card-dark rounded-xl transition-all duration-300 overflow-hidden group">
 								{img && (
 									<div class="aspect-video overflow-hidden">
 										<img src={img} alt={imgAlt} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
@@ -84,7 +84,7 @@ const posts = allPosts.slice(start, start + POSTS_PER_PAGE);
 					</div>
 				)}
 			</div>
-		</main>
+		</section>
 		<Footer />
 	</body>
 </html>

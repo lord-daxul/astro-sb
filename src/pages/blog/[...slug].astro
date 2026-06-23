@@ -33,7 +33,7 @@ const formatDate = (d: string) => new Date(d).toLocaleDateString("es-CO", { year
 	</head>
 	<body class="antialiased">
 		<Header />
-		<main class="section-padding">
+		<section class="section-padding bg-[#0b1020]">
 			<article class="container-padding max-w-3xl mx-auto">
 				<div class="mb-6">
 					<a href="/blog" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors mb-6">
@@ -57,21 +57,21 @@ const formatDate = (d: string) => new Date(d).toLocaleDateString("es-CO", { year
 
 				<div class="prose prose-invert max-w-none text-white/80 leading-relaxed" set:html={post.content.rendered} />
 			</article>
-		</main>
+		</section>
 		<Footer />
 	</body>
 </html>
 
 <style>
-	.prose h1, .prose h2, .prose h3, .prose h4 { color: white; font-family: ui-serif, Georgia, serif; }
+	.prose h1, .prose h2, .prose h3, .prose h4 { color: var(--color-text); font-family: ui-serif, Georgia, serif; }
 	.prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
 	.prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
 	.prose p { margin-bottom: 1rem; line-height: 1.75; }
-	.prose a { color: #22d3ee; text-decoration: underline; }
+	.prose a { color: var(--color-accent); text-decoration: underline; }
 	.prose img { border-radius: 0.75rem; margin: 1.5rem 0; max-width: 100%; }
 	.prose ul, .prose ol { margin: 1rem 0; padding-left: 1.5rem; }
 	.prose li { margin-bottom: 0.5rem; }
-	.prose blockquote { border-left: 3px solid #22d3ee; padding-left: 1rem; margin: 1.5rem 0; color: rgba(255,255,255,0.7); font-style: italic; }
-	.prose pre { background: rgba(255,255,255,0.05); border-radius: 0.75rem; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; }
+	.prose blockquote { border-left: 3px solid var(--color-accent); padding-left: 1rem; margin: 1.5rem 0; color: var(--color-text-muted); font-style: italic; }
+	.prose pre { background: var(--color-bg-icon); border-radius: 0.75rem; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; }
 	.prose code { font-size: 0.875rem; }
 </style>
