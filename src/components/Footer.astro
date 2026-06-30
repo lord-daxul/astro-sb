@@ -21,32 +21,32 @@ const legalLinks = [
 const today = new Date();
 ---
 
-<footer id="footer" class="bg-[#0b1020] text-white border-t border-white/10">
+<footer id="footer" class="bg-[var(--color-bg)] text-[var(--color-text)] border-t border-[var(--color-border)]">
   <div class="container-padding max-w-7xl mx-auto py-12 md:py-16">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
       <div class="lg:col-span-1">
-        <a href="/" class="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-[#EA3D92] bg-clip-text text-transparent">
+        <a href="/" class="text-2xl font-bold bg-[var(--color-logo-gradient)] bg-clip-text text-transparent">
           SpyBlue
         </a>
-        <p class="mt-4 text-white/60 text-sm">
+        <p class="mt-4 text-[var(--color-text-muted)] text-sm">
           Mejor Estudio WebCam de Cúcuta y Latam. Profesionalismo, seguridad y altos ingresos garantizados.
         </p>
         <div class="flex space-x-4 mt-6">
-          <a href="#" class="text-white/40 hover:text-cyan-400 transition-colors">
+          <a href="#" class="text-[var(--color-text-dim)] hover:text-[var(--color-accent)] transition-colors">
             <Icon name="instagram" size={20} />
           </a>
-          <a href="#" class="text-white/40 hover:text-cyan-400 transition-colors">
+          <a href="#" class="text-[var(--color-text-dim)] hover:text-[var(--color-accent)] transition-colors">
             <Icon name="facebook" size={20} />
           </a>
         </div>
       </div>
 
       <div>
-        <h3 class="font-semibold text-white mb-4">Navegación</h3>
+        <h3 class="font-semibold text-[var(--color-text)] mb-4">Navegación</h3>
         <ul class="space-y-3">
           {navLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-white/60 hover:text-cyan-400 transition-colors">
+              <a href={link.href} class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
                 {link.label}
               </a>
             </li>
@@ -55,36 +55,36 @@ const today = new Date();
       </div>
 
       <div>
-        <h3 class="font-semibold text-white mb-4">Contacto</h3>
+        <h3 class="font-semibold text-[var(--color-text)] mb-4">Contacto</h3>
         <ul class="space-y-3">
           <li>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
               target="_blank"
               rel="noopener noreferrer"
-              class="text-white/60 hover:text-cyan-400 transition-colors flex items-center"
+              class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors flex items-center"
             >
-              <Icon name="phone" size={16} class="mr-2 text-cyan-400" />
+              <Icon name="phone" size={16} class="mr-2 text-[var(--color-accent)]" />
               +57 316 600 4712
             </a>
           </li>
-          <li class="flex items-center text-white/60">
-            <Icon name="mail" size={16} class="mr-2 text-cyan-400" />
+          <li class="flex items-center text-[var(--color-text-muted)]">
+            <Icon name="mail" size={16} class="mr-2 text-[var(--color-accent)]" />
             info@spyblue.co
           </li>
-          <li class="flex items-start text-white/60">
-            <Icon name="map-pin" size={16} class="mr-2 mt-0.5 text-cyan-400" />
+          <li class="flex items-start text-[var(--color-text-muted)]">
+            <Icon name="map-pin" size={16} class="mr-2 mt-0.5 text-[var(--color-accent)]" />
             Cúcuta, Colombia
           </li>
         </ul>
       </div>
 
       <div>
-        <h3 class="font-semibold text-white mb-4">Legal</h3>
+        <h3 class="font-semibold text-[var(--color-text)] mb-4">Legal</h3>
         <ul class="space-y-3">
           {legalLinks.map((link) => (
             <li>
-              <a href={link.href} class="text-white/60 hover:text-cyan-400 transition-colors">
+              <a href={link.href} class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
                 {link.label}
               </a>
             </li>
@@ -93,8 +93,8 @@ const today = new Date();
       </div>
     </div>
 
-    <div class="border-t border-white/5 pt-8">
-      <p class="text-center text-white/40 text-sm">
+    <div class="border-t border-[var(--color-border)] pt-8">
+      <p class="text-center text-[var(--color-text-dim)] text-sm">
         &copy; {today.getFullYear()} SpyBlue. Todos los derechos reservados.
       </p>
     </div>
