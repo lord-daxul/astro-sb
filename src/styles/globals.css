@@ -17,7 +17,8 @@
     --color-bg-icon-hover: #FCE4EC;
     --color-card-bg: #ffffff;
     --color-card-hover: #C19A8E;
-    --color-btn-gradient: linear-gradient(135deg, #FCE4EC, #FADADD, #D4AF37);
+    --color-btn-gradient: linear-gradient(135deg, #EFBBCC, #CBA35C);
+    --color-btn-gradient-hover: linear-gradient(135deg, #E8A8B8, #B8904A);
     --color-logo-gradient: linear-gradient(to right, #D4AF37, #D8A79A);
     --gold: #D4AF37;
     --gold-dark: #A8864A;
@@ -33,6 +34,14 @@
     --brown-dark: #5D4037;
     --brown-muted: #4B4B4B;
     --beige-border: #E8E4DE;
+    --header-bg: #F9F1EB;
+    --header-text: #4D3A2C;
+    --header-text-hover: #D4AF37;
+    --header-cta-gradient: linear-gradient(135deg, #EFBBCC, #CBA35C);
+    --header-cta-text: #ffffff;
+    --footer-bg: #1A2B47;
+    --footer-text: #D4AF37;
+    --footer-text-muted: rgba(212,175,55,0.8);
   }
 
   html.dark {
@@ -51,6 +60,14 @@
     --color-card-hover: #EA3D92;
     --color-btn-gradient: linear-gradient(to right, #2979FF, #EA3D92);
     --color-logo-gradient: linear-gradient(to right, #22d3ee, #EA3D92);
+    --header-bg: #0b1020;
+    --header-text: rgba(255,255,255,0.7);
+    --header-text-hover: #22d3ee;
+    --header-cta-gradient: linear-gradient(to right, #2979FF, #EA3D92);
+    --header-cta-text: #ffffff;
+    --footer-bg: #0b1020;
+    --footer-text: #D4AF37;
+    --footer-text-muted: rgba(212,175,55,0.7);
   }
 
   html { scroll-behavior: smooth; }

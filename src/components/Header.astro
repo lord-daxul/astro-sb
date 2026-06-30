@@ -16,7 +16,7 @@ const WHATSAPP_NUMBER = "573166004712";
 const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudio de modelaje webcam.";
 ---
 
-<header id="header" class="sticky top-0 z-50 bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)] transition-all duration-300">
+<header id="header" class="sticky top-0 z-50 bg-[var(--header-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)] transition-all duration-300">
   <div class="container-padding max-w-7xl mx-auto">
     <div class="flex items-center justify-between h-16">
       <a href="/" class="flex items-center space-x-2">
@@ -28,7 +28,7 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
 
       <nav class="hidden md:flex items-center space-x-8">
         {navItems.map((item) => (
-          <a href={item.href} class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] font-medium transition-colors">
+          <a href={item.href} class="text-[var(--header-text)] hover:text-[var(--header-text-hover)] font-medium transition-colors">
             {item.label}
           </a>
         ))}
@@ -40,16 +40,16 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm bg-[var(--color-btn-gradient)] text-white transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-accent-alt)]/30 hover:-translate-y-0.5"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm bg-[var(--header-cta-gradient)] text-[var(--header-cta-text)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--header-text-hover)]/30 hover:-translate-y-0.5"
         >
           <Icon name="phone" size={16} />
-          Contactar
+          Registrate
         </a>
       </div>
 
       <div class="md:hidden flex items-center space-x-2">
         <ThemeToggle />
-        <button id="menu-toggle" class="p-2 text-[var(--color-text-muted)]" aria-label="Toggle menu">
+        <button id="menu-toggle" class="p-2 text-[var(--header-text)]" aria-label="Toggle menu">
           <Icon name="menu" class="w-6 h-6" />
         </button>
       </div>
@@ -58,7 +58,7 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
     <div id="mobile-menu" class="md:hidden hidden py-4 border-t border-[var(--color-border)]">
       <nav class="flex flex-col space-y-4">
         {navItems.map((item) => (
-          <a href={item.href} class="text-[var(--color-text-muted)] hover:text-[var(--color-accent)] font-medium px-2 py-1 mobile-link">
+          <a href={item.href} class="text-[var(--header-text)] hover:text-[var(--header-text-hover)] font-medium px-2 py-1 mobile-link">
             {item.label}
           </a>
         ))}
@@ -66,10 +66,10 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
           href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm bg-[var(--color-btn-gradient)] text-white transition-all duration-300 hover:shadow-lg hover:shadow-[var(--color-accent-alt)]/30 hover:-translate-y-0.5 mx-2"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm bg-[var(--header-cta-gradient)] text-[var(--header-cta-text)] transition-all duration-300 hover:shadow-lg hover:shadow-[var(--header-text-hover)]/30 hover:-translate-y-0.5 mx-2"
         >
           <Icon name="phone" size={16} />
-          Contactar
+          Registrate
         </a>
         </nav>
       </div>
