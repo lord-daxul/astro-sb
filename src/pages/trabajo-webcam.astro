@@ -16,17 +16,18 @@ const steps = [
 ];
 
 const RSS_URL = 'https://backend.spyblue.co/empleos/feed/';
-let empleos: { title: string; link: string; description: string }[] = [];
+let empleos: { title: string; slug: string; description: string }[] = [];
 
-try {
+  try {
   const res = await fetch(RSS_URL);
   const xml = await res.text();
   const items = xml.match(/<item>([\s\S]*?)<\/item>/g) || [];
   empleos = items.map((item) => {
     const title = item.match(/<title>(.*?)<\/title>/)?.[1]?.replace(/&#\d+;/g, (m) => String.fromCharCode(parseInt(m.slice(2, -1)))) || '';
     const link = item.match(/<link>(.*?)<\/link>/)?.[1] || '';
+    const slug = link.match(/empleos\/(.*?)\//)?.[1] || '';
     const desc = item.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/)?.[1]?.replace(/<[^>]*>/g, '').trim().slice(0, 150) || '';
-    return { title, link, description: desc };
+    return { title, slug, description: desc };
   });
 } catch (e) {}
 ---
@@ -135,20 +136,20 @@ try {
 							</div>
 							<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 								{empleos.map((empleo) => (
-									<article class="card-dark rounded-xl transition-all duration-300 overflow-hidden group">
-										<div class="p-6">
-											<h3 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-cyan-400 transition-colors">
-												<a href={empleo.link} target="_blank" rel="noopener noreferrer">{empleo.title}</a>
-											</h3>
-											{empleo.description && (
-												<p class="text-white/70 text-sm mb-4 line-clamp-3">{empleo.description}</p>
-											)}
-											<a href={empleo.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-cyan-400 font-medium hover:text-cyan-300">
-												Ver Empleo
-												<Icon name="arrow-right" size={16} class="ml-1" />
-											</a>
-										</div>
-									</article>
+								<article class="card-dark rounded-xl transition-all duration-300 overflow-hidden group">
+									<div class="p-6">
+										<h3 class="text-lg font-bold text-white mb-3 line-clamp-2 group-hover:text-cyan-400 transition-colors">
+											<a href={`/empleos/${empleo.slug}`}>{empleo.title}</a>
+										</h3>
+										{empleo.description && (
+											<p class="text-white/70 text-sm mb-4 line-clamp-3">{empleo.description}</p>
+										)}
+										<a href={`/empleos/${empleo.slug}`} class="inline-flex items-center text-cyan-400 font-medium hover:text-cyan-300">
+											Ver Empleo
+											<Icon name="arrow-right" size={16} class="ml-1" />
+										</a>
+									</div>
+								</article>
 								))}
 							</div>
 						</div>

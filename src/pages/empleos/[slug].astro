@@ -1,0 +1,100 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Icon from '../../components/Icon.astro';
+import { SITE_TITLE } from '../../consts';
+
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
+}
+
+const RSS_URL = 'https://backend.spyblue.co/empleos/feed/';
+const { slug } = Astro.params;
+
+let empleo: { title: string; date: string; content: string } | null = null;
+
+try {
+  const res = await fetch(RSS_URL);
+  const xml = await res.text();
+  const items = xml.match(/<item>([\s\S]*?)<\/item>/g) || [];
+
+  for (const item of items) {
+    const itemSlug = item.match(/<link>(.*?)<\/link>/)?.[1]?.match(/empleos\/(.*?)\//)?.[1];
+    if (itemSlug === slug) {
+      const title = item.match(/<title>(.*?)<\/title>/)?.[1]?.replace(/&#8211;/g, '–').replace(/&#124;/g, '|') || '';
+      const date = item.match(/<pubDate>(.*?)<\/pubDate>/)?.[1] || '';
+      const content = item.match(/<content:encoded><!\[CDATA\[([\s\S]*?)\]\]><\/content:encoded>/)?.[1] || '';
+      empleo = { title, date, content };
+      break;
+    }
+  }
+} catch (e) {}
+
+if (!empleo) {
+  return Astro.redirect('/trabajo-webcam');
+}
+
+const WHATSAPP_NUMBER = "573166004712";
+const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudio de modelaje webcam.";
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <BaseHead title={`${empleo.title} - ${SITE_TITLE}`} description={empleo.content.replace(/<[^>]*>/g, '').slice(0, 160)} />
+  </head>
+  <body class="antialiased">
+    <Header />
+    <section class="section-padding site-section">
+      <article class="container-padding max-w-3xl mx-auto">
+        <div class="mb-6">
+          <a href="/trabajo-webcam" class="inline-flex items-center text-cyan-400 hover:text-cyan-300 font-medium transition-colors mb-6">
+            <Icon name="arrow-right" size={16} class="mr-1 rotate-180" />
+            Volver a Trabajo
+          </a>
+        </div>
+
+        {empleo.date && (
+          <div class="flex items-center text-sm text-white/60 mb-4">
+            <Icon name="calendar" size={16} class="mr-1 text-cyan-400" />
+            {formatDate(empleo.date)}
+          </div>
+        )}
+
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-8" set:html={empleo.title} />
+
+        <div class="prose prose-invert max-w-none text-white/80 leading-relaxed" set:html={empleo.content} />
+
+        <div class="mt-12 text-center">
+          <a
+            href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-lg bg-gradient-to-r from-[#2979FF] to-[#EA3D92] text-white transition-all duration-300 hover:shadow-lg hover:shadow-[#EA3D92]/30 hover:-translate-y-0.5"
+          >
+            <Icon name="phone" size={20} />
+            Postularme
+          </a>
+        </div>
+      </article>
+    </section>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .prose h1, .prose h2, .prose h3, .prose h4 { color: var(--color-text); font-family: ui-serif, Georgia, serif; }
+  .prose h2 { font-size: 1.5rem; margin-top: 2rem; margin-bottom: 1rem; }
+  .prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.75rem; }
+  .prose p { margin-bottom: 1rem; line-height: 1.75; }
+  .prose a { color: var(--color-accent); text-decoration: underline; }
+  .prose img { border-radius: 0.75rem; margin: 1.5rem 0; max-width: 100%; }
+  .prose ul, .prose ol { margin: 1rem 0; padding-left: 1.5rem; }
+  .prose li { margin-bottom: 0.5rem; }
+  .prose hr { border-color: var(--color-border); margin: 2rem 0; }
+  .prose strong { color: var(--color-text); }
+  .prose blockquote { border-left: 3px solid var(--color-accent); padding-left: 1rem; margin: 1.5rem 0; color: var(--color-text-muted); font-style: italic; }
+  .prose pre { background: var(--color-bg-icon); border-radius: 0.75rem; padding: 1rem; overflow-x: auto; margin: 1.5rem 0; }
+  .prose code { font-size: 0.875rem; }
+</style>
