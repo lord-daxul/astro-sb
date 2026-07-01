@@ -13,7 +13,7 @@ export interface WPPost {
 }
 
 export async function getPosts(): Promise<WPPost[]> {
-  const res = await fetch(`${WP_API_URL}/posts?_embed`);
+  const res = await fetch(`${WP_API_URL}/posts?per_page=100&_embed`);
   if (!res.ok) throw new Error('Failed to fetch posts');
   return res.json();
 }
