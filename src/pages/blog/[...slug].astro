@@ -8,6 +8,10 @@ import { SITE_TITLE } from '../../consts';
 import '../../styles/globals.css';
 ---
 
+function formatDate(d: string) {
+	return new Date(d).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
+}
+
 export async function getStaticPaths() {
   const res = await fetch('https://backend.spyblue.co/wp-json/wp/v2/posts');
   const posts = await res.json();
@@ -25,7 +29,6 @@ if (!post) {
 
 const img = post._embedded?.["wp:featuredmedia"]?.[0]?.source_url;
 const imgAlt = post._embedded?.["wp:featuredmedia"]?.[0]?.alt_text || "";
-const formatDate = (d: string) => new Date(d).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
 ---
 
 <!doctype html>
