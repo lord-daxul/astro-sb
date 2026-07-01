@@ -19,6 +19,44 @@ const posts = await getPosts();
 <html lang="es">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "LocalBusiness",
+			"name": "SpyBlue Studio",
+			"description": "Estudio profesional de modelos webcam en Cúcuta, Norte de Santander. Capacitación, instalaciones de primer nivel y los mejores ingresos.",
+			"url": "https://www.spyblue.co",
+			"telephone": "+573166004712",
+			"email": "info@spyblue.co",
+			"address": {
+				"@type": "PostalAddress",
+				"streetAddress": "Zona Centro",
+				"addressLocality": "Cúcuta",
+				"addressRegion": "Norte de Santander",
+				"postalCode": "540001",
+				"addressCountry": "CO"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": 7.8891,
+				"longitude": -72.4967
+			},
+			"areaServed": {
+				"@type": "City",
+				"name": "Cúcuta"
+			},
+			"priceRange": "$$",
+			"openingHoursSpecification": {
+				"@type": "OpeningHoursSpecification",
+				"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+				"opens": "00:00",
+				"closes": "23:59"
+			},
+			"sameAs": [
+				"https://www.instagram.com/spyblue.studio/",
+				"https://www.facebook.com/people/Spyblue-cucuta/100075925371638/",
+				"https://www.tiktok.com/@spyblue_studio"
+			]
+		})} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet" />
