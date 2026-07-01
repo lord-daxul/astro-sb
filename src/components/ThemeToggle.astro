@@ -3,9 +3,15 @@ import Icon from './Icon.astro';
 ---
 
 <button class="theme-toggle p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-all duration-300 hover:scale-110" aria-label="Toggle theme">
-  <Icon name="sun" class="w-5 h-5 text-cyan-400 dark-icon" style="display:none" />
-  <Icon name="moon" class="w-5 h-5 text-slate-600 light-icon" />
+  <span class="sun-icon hidden"><Icon name="sun" class="w-5 h-5 text-cyan-400" /></span>
+  <span class="moon-icon"><Icon name="moon" class="w-5 h-5 text-[var(--color-accent)]" /></span>
 </button>
+
+<style>
+  .dark .sun-icon { display: block !important; }
+  .dark .moon-icon { display: none !important; }
+  .sun-icon { display: none; }
+</style>
 
 <script>
   const isDark = localStorage.getItem('theme') === 'dark';
@@ -13,17 +19,10 @@ import Icon from './Icon.astro';
     document.documentElement.classList.add('dark');
   }
 
-  function updateIcons(dark) {
-    document.querySelectorAll('.dark-icon').forEach(el => el.style.display = dark ? '' : 'none');
-    document.querySelectorAll('.light-icon').forEach(el => el.style.display = dark ? 'none' : '');
-  }
-  updateIcons(isDark);
-
   document.querySelectorAll('.theme-toggle').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', (e) => {
       const nowDark = document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', nowDark ? 'dark' : 'light');
-      updateIcons(nowDark);
     });
   });
 </script>
