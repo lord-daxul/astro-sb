@@ -16,7 +16,7 @@
     --color-bg-icon: #F4ECE3;
     --color-bg-icon-hover: #E8DCCF;
     --color-card-bg: #FFFFFF;
-    --color-card-hover: #C99A3D;
+    --color-card-hover: #C19A8E;
     --color-btn-gradient: linear-gradient(135deg, #D8B164, #B9872D);
     --color-logo-gradient: linear-gradient(to right, #C99A3D, #D9B86B);
     --gold: #C99A3D;
@@ -107,8 +107,7 @@
   }
   .card-dark:hover {
     border-color: var(--color-card-hover);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
-    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   }
   html.dark .card-dark:hover {
     box-shadow: none;
