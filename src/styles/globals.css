@@ -420,3 +420,25 @@ div[class*="border-white\/10"] {
 html.dark div[class*="border-white\/10"] {
   border-color: rgba(255,255,255,0.1) !important;
 }
+
+/* Footer always dark theme (gold text on dark bg) */
+#footer {
+  background-color: #0b1020 !important;
+  border-top-color: rgba(255,255,255,0.1) !important;
+}
+#footer [class*="text-"] {
+  color: #D4AF37 !important;
+}
+#footer [class*="text-white\/60"],
+#footer [class*="text-white\/40"] {
+  color: rgba(212,175,55,0.8) !important;
+}
+#footer [class*="hover:text-cyan-400"]:hover {
+  color: #D4AF37 !important;
+}
+#footer [class*="from-cyan-400"] {
+  background-image: linear-gradient(to right, #D4AF37, #D8A79A) !important;
+}
+#footer .logo-wrapper {
+  background-image: linear-gradient(to right, #D4AF37, #D8A79A) !important;
+}
