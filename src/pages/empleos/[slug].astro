@@ -43,6 +43,39 @@ const WHATSAPP_MESSAGE = "Hola, estoy interesada en conocer más sobre el estudi
 <html lang="es">
   <head>
     <BaseHead title={`${empleo.title} - ${SITE_TITLE}`} description={empleo.content.replace(/<[^>]*>/g, '').slice(0, 160)} />
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "JobPosting",
+      "title": empleo.title,
+      "description": empleo.content.replace(/<[^>]*>/g, '').trim(),
+      "datePosted": empleo.date ? new Date(empleo.date).toISOString() : undefined,
+      "employmentType": "FULL_TIME",
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": "SpyBlue Studio",
+        "sameAs": "https://www.spyblue.co"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Zona Centro",
+          "addressLocality": "Cúcuta",
+          "addressRegion": "Norte de Santander",
+          "postalCode": "540001",
+          "addressCountry": "CO"
+        }
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "COP",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": 2000000,
+          "unitText": "MONTH"
+        }
+      }
+    })} />
   </head>
   <body class="antialiased">
     <Header />
