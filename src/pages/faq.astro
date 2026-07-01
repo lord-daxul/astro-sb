@@ -53,6 +53,18 @@ const faqs = [
 <html lang="es">
 	<head>
 		<BaseHead title={`Preguntas Frecuentes - Modelo Webcam Cúcuta | SpyBlue Studio`} description="Resolvemos todas tus dudas sobre trabajo como modelo webcam en Cúcuta: requisitos, horarios, pagos, plataformas y más. SpyBlue Studio." />
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "FAQPage",
+			"mainEntity": faqs.map((faq) => ({
+				"@type": "Question",
+				"name": faq.question,
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": faq.answer
+				}
+			}))
+		})} />
 	</head>
 	<body class="antialiased">
 		<Header />
