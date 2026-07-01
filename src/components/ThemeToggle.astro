@@ -14,7 +14,7 @@ import Icon from './Icon.astro';
 </style>
 
 <script>
-  const isDark = localStorage.getItem('theme') === 'dark';
+  const isDark = localStorage.getItem('theme') !== 'light';
   if (isDark) {
     document.documentElement.classList.add('dark');
   }
