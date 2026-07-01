@@ -6,7 +6,6 @@ import Icon from '../../components/Icon.astro';
 import { getPostBySlug } from '../../lib/wordpress';
 import { SITE_TITLE } from '../../consts';
 import '../../styles/globals.css';
----
 
 function formatDate(d: string) {
 	return new Date(d).toLocaleDateString("es-CO", { year: "numeric", month: "long", day: "numeric" });
