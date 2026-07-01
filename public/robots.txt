@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# WordPress backend - no index
+User-agent: *
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+# Bloquear AI scrapers que no respetan
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+Sitemap: https://www.spyblue.co/sitemap-index.xml
