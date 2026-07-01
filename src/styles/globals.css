@@ -98,9 +98,12 @@
   }
   .card-dark {
     background-color: var(--color-card-bg);
-    border: 1px solid #E8DCCF;
+    border: 1px solid var(--gold);
     border-radius: 18px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+  }
+  html.dark .card-dark {
+    border-color: #22D3EE;
   }
   .card-dark:hover {
     border-color: var(--color-card-hover);
